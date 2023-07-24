@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang='ko-KR'>
 			<body className={`${gilroy.variable} font-sans`}>
-				<main className='max-w-screen-2xl flex px-8'>
+				<main className='max-w-screen-2xl flex px-8 min-h-screen'>
 					<Nav />
 					{children}
 				</main>

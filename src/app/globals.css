@@ -8,7 +8,7 @@
 
 @layer components {
 	.menu {
-		@apply block text-left font-bold text-2xl text-[#3e3e3e];
+		@apply block text-left font-bold text-2xl text-[#3e3e3e] transition-colors ease-in delay-75 duration-300;
 	}
 	.menu.active {
 		@apply text-[#ffffff];
