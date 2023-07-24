@@ -1,7 +1,17 @@
+import Nav from '@/components/Nav';
 import './globals.css';
-import { Noto_Sans_KR } from 'next/font/google';
+import localFont from 'next/font/local';
 
-const inter = Noto_Sans_KR({ subsets: ['latin'], weight: ['100', '300', '400', '500', '700', '900'] });
+const gilroy = localFont({
+	src: [
+		{ path: '../../public/font/Gilroy-Light.woff', weight: '400' },
+		{ path: '../../public/font/Gilroy-Regular.woff', weight: '500' },
+		{ path: '../../public/font/Gilroy-Medium.woff', weight: '600' },
+		{ path: '../../public/font/Gilroy-Bold.woff', weight: '700' },
+		{ path: '../../public/font/Gilroy-Heavy.woff', weight: '800' },
+	],
+	variable: '--font-gilroy',
+});
 
 export const metadata = {
 	title: '유선주 포트폴리오',
@@ -11,7 +21,12 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang='ko-KR'>
-			<body className={inter.className}>{children}</body>
+			<body className={`${gilroy.variable} font-sans`}>
+				<main className='max-w-screen-2xl flex px-8'>
+					<Nav />
+					{children}
+				</main>
+			</body>
 		</html>
 	);
 }
