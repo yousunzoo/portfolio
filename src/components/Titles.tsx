@@ -10,7 +10,7 @@ import { usePathname, useRouter } from 'next/navigation';
 const dataList = [
 	{ title: "Hi, I'm Seonju", path: '/' },
 	{ title: 'About My Experience', path: '/about' },
-	{ title: 'Check my works', path: '/portfolio' },
+	{ title: 'Check My Works', path: '/portfolio' },
 	{
 		title: 'My Contacts',
 		path: '/contacts',
@@ -38,9 +38,9 @@ function Titles() {
 				swiperRef.current = swiper;
 			}}
 			modules={[EffectFade]}
-			effect='creative'
+			effect='coverflow'
 			onSlideChange={({ activeIndex }) => changePage(activeIndex)}
-			className='w-1/2 m-0'>
+			className='w-2/6 m-0'>
 			{dataList.map((item) => (
 				<SwiperSlide key={item.title}>
 					<div className='flex h-full justify-center items-center'>

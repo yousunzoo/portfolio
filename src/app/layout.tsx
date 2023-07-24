@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<Nav />
 					<section className='w-[80%] flex'>
 						<Titles />
-						<div>{children}</div>
+						<div className='w-4/6'>{children}</div>
 					</section>
 				</main>
 			</body>
