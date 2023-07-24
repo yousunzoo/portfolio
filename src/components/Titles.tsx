@@ -1,11 +1,11 @@
 'use client';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 import { EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const dataList = [
 	{ title: "Hi, I'm Seonju", path: '/' },
@@ -19,11 +19,18 @@ const dataList = [
 
 function Titles() {
 	const swiperRef = useRef<SwiperCore>();
+	const pathname = usePathname();
 	const router = useRouter();
 	const changePage = (index: number) => {
 		const path = dataList[index].path;
 		router.push(path);
 	};
+	useEffect(() => {
+		if (!swiperRef.current) return;
+		const swiper = swiperRef.current;
+		const activeIndex = dataList.findIndex((item) => item.path == pathname);
+		swiper.slideTo(activeIndex);
+	}, [pathname]);
 
 	return (
 		<Swiper
