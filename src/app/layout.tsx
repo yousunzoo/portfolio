@@ -1,6 +1,7 @@
 import Nav from '@/components/Nav';
 import './globals.css';
 import localFont from 'next/font/local';
+import Titles from '@/components/Titles';
 
 const gilroy = localFont({
 	src: [
@@ -24,7 +25,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body className={`${gilroy.variable} font-sans`}>
 				<main className='max-w-screen-2xl flex px-8 min-h-screen'>
 					<Nav />
-					{children}
+					<section className='w-[80%] flex'>
+						<Titles />
+						<div>{children}</div>
+					</section>
 				</main>
 			</body>
 		</html>
