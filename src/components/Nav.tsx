@@ -23,7 +23,7 @@ const menus = [
 function Nav() {
 	const path = usePathname();
 	return (
-		<nav className='w-[20%] min-w-[140px] flex flex-col justify-center gap-8'>
+		<nav className='w-[12%] min-w-[140px] flex flex-col justify-center gap-8'>
 			{menus.map((item) => (
 				<Link className={`menu ${path === item.href && 'active'}`} key={item.name} href={item.href}>
 					{item.name}

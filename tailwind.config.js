@@ -10,6 +10,9 @@ module.exports = {
 			fontFamily: {
 				sans: ['var(--font-gilroy)'],
 			},
+			backgroundImage: {
+				'form-bg': "url('/images/formBg.JPG')",
+			},
 		},
 	},
 	plugins: [],

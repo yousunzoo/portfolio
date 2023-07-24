@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body className={`${gilroy.variable} font-sans`}>
 				<main className='max-w-screen-2xl flex px-8 min-h-screen'>
 					<Nav />
-					<section className='w-[80%] flex'>
+					<section className='w-[88%] flex'>
 						<Titles />
 						<div className='w-4/6'>{children}</div>
 					</section>
