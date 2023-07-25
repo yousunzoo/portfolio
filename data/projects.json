@@ -1,0 +1,29 @@
+[
+	{
+		"title": "Money Bridge",
+		"description": "투자자와 PB를 연결해주는 위치 기반의 매칭 플랫폼",
+		"period": "2023.06 - in progress",
+		"mainStacks": ["TypeScript", "Next.js(13)", "Zustand"],
+		"secStacks": ["Tailwind CSS", "Axios", "React-Query", "React-hook-form", "Ant Design"],
+		"path": "money-bridge",
+		"preview": "/images/money-banner.jpeg"
+	},
+	{
+		"title": "LUPIN 일정관리 프로그램",
+		"description": "LUPIN 회사 사원들의 연차/당직을 관리하는 일정관리 프로그램",
+		"period": "2023.04 - 2023.05",
+		"mainStacks": ["TypeScript", "React", "Redux-toolkit"],
+		"secStacks": ["Styled-Components", "Axios", "React-Query", "React-hook-form", "Full-Calendar"],
+		"path": "lupin",
+		"preview": "/images/lupin-banner.png"
+	},
+	{
+		"title": "Moodlog",
+		"description": "다양한 무드 아이콘과 함께 나의 하루를 그림으로 기록할 수 있는 SNS 서비스",
+		"period": "2023.04 - 2023.04",
+		"mainStacks": ["TypeScript", "React", "Redux-toolkit"],
+		"secStacks": ["Styled-Components", "Axios", "React-Query", "React-hook-form", "React-Calendar"],
+		"path": "moodlog",
+		"preview": "/images/moodlog-banner.png"
+	}
+]
