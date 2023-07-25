@@ -6,13 +6,13 @@ function RootPage() {
 		<div className='flex flex-col gap-20 h-full justify-center px-20'>
 			<div className='flex w-full'>
 				<h3 className='text-7xl text-left w-full font-extrabold text-transparent bg-clip-text bg-text-bg'>
-					<p>And I'm</p>
+					<p>And I&rsquo;m</p>
 					<p>Front-End</p>
 					<p>Developer.</p>
 				</h3>
 				<Image className='ml-auto' src={profile} width={240} height={240} alt='profile' />
 			</div>
-			<p className='text-white text-lg leading-8 break-keep font-jeju'>
+			<p className='text-white text-lg leading-8 break-keep font-nanum'>
 				<span className='highlight'>함께 성장하는 프론트엔드 개발자 유선주</span>입니다.
 				<br />
 				<br />
@@ -27,7 +27,7 @@ function RootPage() {
 				<br />
 				<br />
 				최근에는 SSR에 관심이 생겨 Next.js를 공부하였고, 실제로 SSR을 적용하여 머니브릿지 서비스를 배포한 경험이
-				있습니다. <span className='highlight'>더 나은 사용자 경험과 성능을 제공하는 방법을 탐구하고 있습니다.</span>
+				있습니다. <span className='highlight'>더 나은 사용자 경험과 성능을 제공하는 방법을 탐구</span>하고 있습니다.
 			</p>
 		</div>
 	);
