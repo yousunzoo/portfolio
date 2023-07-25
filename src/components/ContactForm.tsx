@@ -48,13 +48,21 @@ function ContactForm() {
 					<label htmlFor='name' className='label'>
 						Your Name <span className='h-4 text-sm text-red-500'>*</span>
 					</label>
-					<input type='text' id='name' className='input' placeholder='이름' {...register('name', { required: true })} />
+					<input
+						type='text'
+						autoComplete='off'
+						id='name'
+						className='input'
+						placeholder='이름'
+						{...register('name', { required: true })}
+					/>
 					<p className='mb-4 h-4 text-sm text-red-500'>{errors?.name ? '이름을 입력해주세요.' : ''}</p>
 					<label htmlFor='from' className='label'>
 						Email <span className='h-4 text-sm text-red-500'>*</span>
 					</label>
 					<input
 						type='text'
+						autoComplete='off'
 						id='from'
 						className='input'
 						placeholder='example@test.com'
@@ -66,6 +74,7 @@ function ContactForm() {
 					</label>
 					<input
 						type='text'
+						autoComplete='off'
 						id='subject'
 						className='input'
 						placeholder='제목을 입력해주세요'
@@ -78,7 +87,7 @@ function ContactForm() {
 					</label>
 					<textarea
 						id='message'
-						className='resize-none  w-full h-11 input'
+						className='resize-none w-full h-11 input'
 						placeholder='내용을 입력해주세요'
 						{...register('message', { required: true })}
 					/>
