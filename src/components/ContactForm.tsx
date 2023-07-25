@@ -1,10 +1,12 @@
 'use client';
 import { sendContactEmail } from '@/service/contact';
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { FieldValues, useForm } from 'react-hook-form';
 import Banner from './Banner';
+import Loading from './Loading';
 
 function ContactForm() {
+	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [banner, setBanner] = useState<{ message: string; state: 'success' | 'error' } | null>(null);
 	const {
 		register,
@@ -12,32 +14,36 @@ function ContactForm() {
 		reset,
 		formState: { errors },
 	} = useForm();
+
+	const handleSendEmail = (data: FieldValues) => {
+		const { name, from, subject, message } = data;
+		setIsSubmitting(true);
+		sendContactEmail({ name, from, subject, message })
+			.then(() => {
+				setBanner({
+					message: '메일이 성공적으로 전송되었습니다.',
+					state: 'success',
+				});
+				reset();
+			})
+			.catch(() => {
+				setBanner({
+					message: '메일 전송에 실패했습니다. 다시 시도해주세요.',
+					state: 'error',
+				});
+			})
+			.finally(() => {
+				setIsSubmitting(false);
+				setTimeout(() => {
+					setBanner(null);
+				}, 2000);
+			});
+	};
 	return (
 		<>
 			<form
-				onSubmit={handleSubmit((data) => {
-					const { name, from, subject, message } = data;
-					sendContactEmail({ name, from, subject, message })
-						.then(() => {
-							setBanner({
-								message: '메일이 성공적으로 전송되었습니다.',
-								state: 'success',
-							});
-							reset();
-						})
-						.catch(() => {
-							setBanner({
-								message: '메일 전송에 실패했습니다. 다시 시도해주세요.',
-								state: 'error',
-							});
-						})
-						.finally(() => {
-							setTimeout(() => {
-								setBanner(null);
-							}, 2000);
-						});
-				})}
-				className='w-full py-8 bg-black bg-opacity-40'>
+				onSubmit={handleSubmit((data) => handleSendEmail(data))}
+				className='relative w-full py-8 bg-black bg-opacity-40'>
 				<div className='px-8'>
 					<label htmlFor='name' className='label'>
 						Your Name <span className='h-4 text-sm text-red-500'>*</span>
@@ -78,10 +84,13 @@ function ContactForm() {
 					/>
 					<p className='mb-4 h-4 text-sm text-red-500'>{errors?.message ? '내용은 필수 입력사항입니다.' : ''}</p>
 				</div>
-				<button className='mx-auto flex h-12 w-[180px] items-center transition-all ease-in duration-300 justify-center rounded-lg border-2 border-emerald-800 text-white hover:bg-emerald-900'>
+				<button
+					disabled={isSubmitting}
+					className='mx-auto flex h-12 w-[180px] items-center transition-all ease-in duration-300 justify-center rounded-lg border-2 border-emerald-800 text-white hover:bg-emerald-900'>
 					Send Message
 				</button>
 			</form>
+			{isSubmitting && <Loading />}
 			{banner && <Banner banner={banner} />}
 		</>
 	);
