@@ -20,9 +20,13 @@
 		@apply bg-transparent outline-none w-full my-2 border-b-2 py-2 text-white;
 	}
 	.highlight {
-		font-weight: 800;
-		color: #bfb746;
-		/* background: linear-gradient(to top, rgb(173, 115, 0) 50%, transparent 40%); */
+		@apply font-bold text-[#bfb746];
+	}
+	.link {
+		@apply relative flex italic w-fit gap-2 items-center text-white font-bold text-xl mb-4;
+	}
+	.active {
+		@apply after:w-0 after:transition-all after:ease-in after:duration-300 after:h-2 after:bottom-[2px] after:absolute after:opacity-60  hover:after:w-full;
 	}
 }
 
