@@ -19,6 +19,11 @@
 	.input {
 		@apply bg-transparent outline-none w-full my-2 border-b-2 py-2 text-white;
 	}
+	.highlight {
+		font-weight: 800;
+		color: #bfb746;
+		/* background: linear-gradient(to top, rgb(173, 115, 0) 50%, transparent 40%); */
+	}
 }
 
 main {

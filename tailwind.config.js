@@ -8,11 +8,14 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['var(--font-gilroy)'],
+				sans: ['var(--font-gilroy)', 'var(--font-nanum)'],
 			},
 			backgroundImage: {
 				'form-bg': "url('/images/formBg.JPG')",
+				'text-bg': "url('/images/textBg.JPG')",
+				'about-bg': "url('/images/aboutBg.png')",
 			},
+			backgroundSize: { auto: 'auto', cover: 'cover', contain: 'contain' },
 		},
 	},
 	plugins: [],

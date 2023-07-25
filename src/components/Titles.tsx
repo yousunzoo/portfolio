@@ -2,19 +2,17 @@
 import { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
-import { EffectFade } from 'swiper/modules';
+import { EffectCreative } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/effect-fade';
+import 'swiper/css/effect-creative';
+import 'swiper/css/parallax';
 import { usePathname, useRouter } from 'next/navigation';
 
 const dataList = [
-	{ title: "Hi, I'm Seonju", path: '/' },
-	{ title: 'About My Experience', path: '/about' },
-	{ title: 'Check My Works', path: '/portfolio' },
-	{
-		title: 'My Contacts',
-		path: '/contacts',
-	},
+	{ title1: 'Hi,', title2: "I'm Seonju", path: '/' },
+	{ title1: 'About', title2: 'My Experience', path: '/about' },
+	{ title1: 'Check', title2: 'My Works', path: '/portfolio' },
+	{ title1: 'My', title2: 'Contacts', path: '/contacts' },
 ];
 
 function Titles() {
@@ -37,14 +35,27 @@ function Titles() {
 			onSwiper={(swiper) => {
 				swiperRef.current = swiper;
 			}}
-			modules={[EffectFade]}
-			effect='coverflow'
+			modules={[EffectCreative]}
+			effect='creative'
+			enabled={true}
+			parallax={true}
+			creativeEffect={{
+				prev: {
+					translate: [0, 0, -400],
+				},
+				next: {
+					translate: ['100%', 0, 0],
+				},
+			}}
 			onSlideChange={({ activeIndex }) => changePage(activeIndex)}
 			className='w-2/6 m-0'>
 			{dataList.map((item) => (
-				<SwiperSlide key={item.title}>
-					<div className='flex h-full justify-center items-center'>
-						<h2 className='text-6xl w-full font-bold px-2 text-white leading-[80px]'>{item.title}</h2>
+				<SwiperSlide key={item.path}>
+					<div className='flex bg-[#202020] h-full justify-center items-center'>
+						<h2 className='text-6xl w-full font-bold px-2 text-white leading-[80px]'>
+							<p>{item.title1}</p>
+							<p>{item.title2}</p>
+						</h2>
 					</div>
 				</SwiperSlide>
 			))}

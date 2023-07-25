@@ -14,6 +14,11 @@ const gilroy = localFont({
 	variable: '--font-gilroy',
 });
 
+const nanum = localFont({
+	src: '../../public/font/NanumSquareNeo-Variable.woff',
+	variable: '--font-nanum',
+});
+
 export const metadata = {
 	title: '유선주 포트폴리오',
 	description: 'Next.js 13 기반으로 만들어진 프론트엔드 개발자 유선주 포트폴리오 사이트',
@@ -22,7 +27,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang='ko-KR'>
-			<body className={`${gilroy.variable} font-sans`}>
+			<body className={`${gilroy.variable} ${nanum.variable} font-sans`}>
 				<main className='max-w-screen-2xl flex px-8 min-h-screen'>
 					<Nav />
 					<section className='w-[88%] flex'>
