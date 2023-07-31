@@ -8,7 +8,8 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['var(--font-gilroy)', 'var(--font-nanum)'],
+				sans: ['var(--font-gilroy)'],
+				nanum: ['var(--font-nanum)'],
 			},
 			backgroundImage: {
 				'form-bg': "url('/images/formBg.jpg')",

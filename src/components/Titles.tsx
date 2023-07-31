@@ -27,7 +27,7 @@ function Titles() {
 		if (!swiperRef.current) return;
 		const swiper = swiperRef.current;
 		const activeIndex = dataList.findIndex((item) => item.path == pathname);
-		swiper.slideTo(activeIndex);
+		if (activeIndex > -1) swiper.slideTo(activeIndex);
 	}, [pathname]);
 
 	return (
